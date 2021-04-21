@@ -11,7 +11,10 @@
 	<p>이 페이지는 3초마다 새로고침됩니다.</p>
 	<%
 		response.setIntHeader("Refresh", 3);
+		//response.setHeader("Refresh", "3");
 		//헤더의 값을 정수로 설정, 3초에 한번씩 refresh 새로고침을 한다.
 	%>
+	
+	<a href="response_data.jsp">Google 홈페이지로 이동하기</a>
 </body>
 </html>
