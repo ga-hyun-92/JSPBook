@@ -22,17 +22,18 @@
 	
 	<%
 	if(tel1 !=null &&tel2 !=null &&tel3 !=null){
-	%>
-		<h1>연락처:<%=tel %></h1>
-	<%
+	
 		if(tel1.length()!=3 || tel2.length()!=4 || tel3.length()!=4){
 			out.println("<strong>연락처를 확인해주세요</strong>");
-			if(tel.length()!=11){
-				out.println("<strong>연락처를 확인해주세요</strong>");
-		
-				}
+		//	if(tel.length()!=11){
+		//		out.println("<strong>연락처를 확인해주세요</strong>");
+		//		}
 			
-			} 
+			} else{
+				%>
+				<h1>연락처:<%=tel %></h1>
+			<%
+			}
 		}
 	%>
 	
