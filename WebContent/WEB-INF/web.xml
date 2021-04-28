@@ -9,4 +9,38 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+ 
+ <!-- tomcat-uesrs.xml에 적용된 사용자:manager --> 
+<security-role>
+	<role-name>role1</role-name>
+</security-role>
+
+<!-- 보안관련 제약사항 설정 -->
+<security-constraint>
+
+	<web-resource-collection>
+		<web-resource-name>JSPBook</web-resource-name>
+		<url-pattern>/chapter9/security02.jsp</url-pattern>
+		<http-method>GET</http-method>
+	</web-resource-collection>
+	
+	<auth-constraint>
+		<description>관리자 권한</description>
+		<!-- manager 라는 role을 받은 사용자만 접근가능하다 -->
+		<role-name>role1</role-name>
+	</auth-constraint>
+	
+	<!-- 사용자가 전달하는 데이터를 어떻게 보안하겠다는 설정. CONFIDENTIAL ->아무도 훔쳐보지 않았음 -->
+
+</security-constraint>
+
+<!-- 보안관련 제약사항 설정 -->
+<login-config>
+	<!-- 사용자 인증 -->
+	<auth-method>FORM</auth-method>
+	<form-login-config>
+		<form-login-page>/chapter9/login01.jsp</form-login-page>
+  		<form-error-page>/chapter9/error01.jsp</form-error-page>
+	</form-login-config>
+</login-config>
 </web-app>
