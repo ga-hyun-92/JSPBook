@@ -9,6 +9,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <filter>
+  <!-- 필터 등록 -->
+  	<!-- 필터에 별명을 달아줌 Filter01 -->
+  	<filter-name>Filter01</filter-name>
+  	<filter-class>chapter12.AuthenFilter</filter-class>
+  </filter>
+  
+  <!-- filter01_process.jsp 로전달될 때 Filter01필터가 걸림 -->
+ <filter-mapping>
+ 	<filter-name>Filter01</filter-name>
+ 	<url-pattern>/chapter12/filter01_process.jsp</url-pattern>
+ </filter-mapping>
  
  <!-- tomcat-uesrs.xml에 적용된 사용자:manager --> 
 <security-role>
