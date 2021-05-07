@@ -6,13 +6,20 @@
 
  -->
  <%
-	
-	boolean isLogin=(boolean)session.getAttribute("isLogin");
+ 	
+ 	try{
+ 		
+		boolean isLogin=(boolean)session.getAttribute("isLogin");
  
-	if(isLogin){
-		response.sendRedirect("/JSPBook/chapter14/SessionIndex.jsp");
-	}
- 
+		if(isLogin){
+			response.sendRedirect("/JSPBook/chapter14/sessionIndex.jsp");
+		}
+ 	} catch(NullPointerException e){
+ 		//NullPoninterException이 발생하는 이유(조건)?
+ 		//이유를 파악하고 그에 맞는 적절한 행동을 하세요.
+ 		//이유는 로그인을 하지 않아서! 
+ 	}
+ 	
  %>
 <!DOCTYPE html>
 <html>
@@ -50,7 +57,7 @@
 				data: "id="+id+"&pw="+pw,
 				success: function() {
 					// 요청이 성공했을 때의 동작 (200번대, 300번대 응답코드가 돌아왔을 때)
-					location.href = "/JSPBook/chapter14/SessionIndex.jsp";
+					location.href = "/JSPBook/chapter14/sessionIndex.jsp";
 				},
 				error: function() {
 					// 요청이 실패했을 때의 동작 (400번대, 500번대 응답코드가 돌아왔을 때)
