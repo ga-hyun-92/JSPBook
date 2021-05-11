@@ -1,3 +1,4 @@
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="org.apache.catalina.connector.Response"%>
 <%@page import="java.sql.Statement"%>
@@ -15,11 +16,11 @@
 		
 		Class.forName("org.mariadb.jdbc.Driver");
 		
-		conn = DriverManager.getConnection("jdbc:mariadb://localhost:8081/JSPBookDB?user=root&password=koreait");
+		conn = DriverManager.getConnection("jdbc:mariadb://localhost:3307/JSPBookDB?user=root&password=koreait");
 		
 		Statement stmt=conn.createStatement();
 		
-		ResultSet rs=stmt.executeQuery("SELECT * FROM member WHERE id='" + id + "' AND pw = '" + pw + "'");
+		ResultSet rs=stmt.executeQuery("SELECT * FROM memeber WHERE id='" + id + "' AND pw = '" + pw + "'");
 		
 		boolean isExist=rs.next();
 		if(isExist){
@@ -37,10 +38,19 @@
 			response.setStatus(401);
 		}
 		
-	} catch(ClassNotFoundException e){
+	} catch(Exception e){
 		//예외처리
 		// 응답코드 500(우리 서버의 문제가 있다)
 		response.setStatus(500);
+	} finally{
+		if(conn!=null){
+			try{
+				conn.close();
+				
+			} catch(SQLException e){
+				
+			}
+		}
 	}	
 
 %>

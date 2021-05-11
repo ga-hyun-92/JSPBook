@@ -51,7 +51,8 @@
 			 
 			
 			$.ajax({
-				url: "/JSPBook/chapter16/join_process.jsp",
+				//url: "/JSPBook/chapter16/join_process.jsp",
+				url: "/JSPBook/member/join",
 				data: "id="+id+"&pw="+pw+"&name="+name,
 				success: function() {
 					alert("회원가입이 되었습니다. \n로그인 페이지로 이동합니다.");

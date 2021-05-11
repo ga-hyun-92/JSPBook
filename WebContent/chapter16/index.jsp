@@ -8,17 +8,17 @@
 
 </head>
 <body>
-	<form action="">
+	<form>
 		<fieldset>
 			<legend>로그인</legend>
 			<label>아이디: <input type="text" name="id"></label>
 			<label>비밀번호: <input type="password" name="pw"></label>
-			<br>
+			<hr>
 			<input type="submit" value="로그인" onclick="return login()">
 		</fieldset>	
 		
 		<fieldset>
-			<a href="/JSPBook/chater16/join.jsp" style="margin-right: 30px;">회원가입</a>
+			<a href="/JSPBook/chapter16/join.jsp" style="margin-right: 30px;">회원가입</a>
 			<a href="/JSPBook/chapter16/find_id.jsp" style="margin-right: 30px;">아이디 찾기</a>
 			<a href="/JSPBook/chapter16/find_pw.jsp">비밀번호 찾기</a>
 		</fieldset>
@@ -36,7 +36,8 @@
 			 
 			
 			$.ajax({
-				url: "/JSPBook/chapter16/login_process.jsp",
+				//url: "/JSPBook/chapter16/login_process.jsp",
+				url: "/JSPBook/member/login",
 				data: "id="+id+"&pw="+pw,
 				type: "post",
 				success: function() {

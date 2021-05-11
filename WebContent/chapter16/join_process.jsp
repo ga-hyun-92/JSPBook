@@ -17,11 +17,11 @@
 		
 		Class.forName("org.mariadb.jdbc.Driver");
 		
-		conn = DriverManager.getConnection("jdbc:mariadb://localhost:8081/JSPBookDB?user=root&password=koreait");
+		conn = DriverManager.getConnection("jdbc:mariadb://localhost:3307/JSPBookDB?user=root&password=koreait");
 		
 		Statement stmt=conn.createStatement();
 		
-		int row=stmt.executeUpdate("INSERT INTO member(id,pw,name) VALUES('"+id+"','"+pw+"','"+name+"')");
+		int row=stmt.executeUpdate("INSERT INTO memeber(id,pw,name) VALUES('"+id+"','"+pw+"','"+name+"')");
 		if(row==1){
 			// 회원 가입 성공
 			// 201 응답코드
@@ -32,10 +32,11 @@
 			response.setStatus(400);
 		}
 		
-	} catch(ClassNotFoundException e){
+	} catch(Exception e){
 		//예외처리
 		// 응답코드 500(우리 서버의 문제가 있다)
 		response.setStatus(500);
+		e.printStackTrace();
 	} finally {
 		if(conn != null) {
 			try {
